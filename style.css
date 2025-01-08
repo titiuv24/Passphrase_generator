@@ -2,16 +2,21 @@
 body {
   font-family: 'Arial', sans-serif;
   text-align: center;
-  background-color: #f9fafc;
+  background-color: #1f1f31; /* Fond violet très sombre */
+  color: #ffffff; /* Texte blanc */
   padding: 10px;
   width: 300px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  height: auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  margin: 0;
+  overflow: hidden;
 }
 
+/* Titre */
 h1 {
-  font-size: 16px;
+  font-size: 18px;
   margin-bottom: 10px;
+  color: #caaaff; /* Violet pastel lumineux */
 }
 
 /* Conteneur principal */
@@ -19,9 +24,8 @@ h1 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   text-align: center;
-  gap: 15px;
+  gap: 10px;
 }
 
 /* Groupes d'options */
@@ -30,7 +34,7 @@ h1 {
   justify-content: center;
   align-items: center;
   gap: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 .options-group {
@@ -38,67 +42,73 @@ h1 {
   flex-direction: column;
   align-items: center;
   gap: 5px;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 label {
-  font-size: 12px;
+  font-size: 14px;
+  color: #ffffff; /* Texte blanc */
 }
 
 /* Slider */
 input[type="range"] {
   width: 80%;
-  margin-top: 5px;
+  margin-top: 3px;
+  accent-color: #caaaff; /* Violet pastel lumineux */
 }
 
 /* Checkboxes */
 .checkbox-group {
   display: flex;
   justify-content: center;
-  gap: 10px;
-  margin-top: 5px;
+  gap: 8px;
+  margin-top: 3px;
 }
 
 .checkbox-group label {
-  font-size: 12px;
+  font-size: 13px;
   display: flex;
   align-items: center;
   gap: 5px;
+  color: #ffffff; /* Texte blanc */
 }
 
 /* Bouton Générer */
 button {
   margin-top: 10px;
-  padding: 5px 10px;
-  font-size: 12px;
+  padding: 6px 12px;
+  font-size: 13px;
   font-weight: bold;
   border: none;
   border-radius: 5px;
-  background-color: #3498db;
-  color: white;
+  background-color: #caaaff; /* Violet pastel lumineux */
+  color: #1f1f31; /* Texte sombre pour contraste */
   cursor: pointer;
 }
 
 button:hover {
-  background-color: #2980b9;
+  background-color: #b499e6; /* Violet pastel légèrement plus sombre au survol */
 }
 
 /* Résultat */
 #passphrase {
-  margin-top: 10px;
+  margin-top: 8px;
   font-size: 14px;
   font-weight: bold;
-  background-color: #ecf0f1;
-  padding: 5px;
+  background-color: #2b2b44; /* Violet plus foncé pour encadrer les résultats */
+  color: #ffffff; /* Texte blanc */
+  padding: 6px;
   border-radius: 5px;
   width: 90%;
   word-wrap: break-word;
+  text-align: center;
 }
 
 /* Notification */
 #notification {
   margin-top: 5px;
-  font-size: 10px;
+  font-size: 11px;
+  color: #caaaff; /* Violet pastel lumineux */
   opacity: 0;
   transition: opacity 0.5s ease;
 }
