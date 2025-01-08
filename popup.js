@@ -1,4 +1,5 @@
 let words = [];
+let history = [];
 
 // Charger le fichier de mots pour les passphrases
 fetch(chrome.runtime.getURL('wordlist.txt'))
@@ -39,6 +40,7 @@ function generatePassphrase() {
   const passphraseText = passphrase.join('-');
   document.getElementById('passphrase').innerText = passphraseText;
   copyToClipboard(passphraseText);
+  addToHistory(passphraseText);
 }
 
 // Générer un mot de passe
@@ -59,6 +61,27 @@ function generatePassword() {
 
   document.getElementById('passphrase').innerText = password;
   copyToClipboard(password);
+  addToHistory(password);
+}
+
+// Ajouter à l'historique
+function addToHistory(item) {
+  history.unshift(item); // Ajoute au début de la liste
+  if (history.length > 10) {
+    history.pop(); // Garde seulement les 10 derniers éléments
+  }
+}
+
+// Afficher l'historique
+function showHistory() {
+  const historyList = document.getElementById('history-list');
+  historyList.innerHTML = ''; // Vide la liste actuelle
+  history.forEach(item => {
+    const li = document.createElement('li');
+    li.textContent = item;
+    historyList.appendChild(li);
+  });
+  document.getElementById('history').style.display = 'block';
 }
 
 // Basculer entre les options
@@ -86,6 +109,9 @@ document.getElementById('generate').addEventListener('click', () => {
     generatePassword();
   }
 });
+
+document.getElementById('show-history').addEventListener('click', showHistory);
+
 document.querySelectorAll('input[name="mode"]').forEach(radio => {
   radio.addEventListener('change', toggleOptions);
 });
