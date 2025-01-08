@@ -69,3 +69,16 @@ body {
     transition: opacity 0.5s ease;
   }
   
+#password-options {
+  margin-top: 10px;
+  text-align: left;
+}
+
+#password-options label {
+  display: block;
+  margin-top: 5px;
+}
+
+#password-options input {
+  margin-right: 5px;
+}

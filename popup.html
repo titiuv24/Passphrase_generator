@@ -6,13 +6,40 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>🔑 Générateur de Passphrase</h1>
-  <p>Obtenez une passphrase sécurisée en un clic.</p>
-  <div id="passphrase">Cliquez sur "Générer"</div>
-  <label for="length">Nombre de mots :</label>
-  <input type="number" id="length" min="1" max="10" value="4">
+  <h1>🔑 Générateur de Mot de Passe/Passphrase</h1>
+  <p>Choisissez votre type de sécurité.</p>
+
+  <label>
+    <input type="radio" name="mode" value="passphrase" checked>
+    Passphrase
+  </label>
+  <label>
+    <input type="radio" name="mode" value="password">
+    Mot de passe
+  </label>
+
+  <div id="passphrase-options">
+    <label for="length">Nombre de mots :</label>
+    <input type="number" id="length" min="1" max="10" value="4">
+  </div>
+
+  <div id="password-options" style="display:none;">
+    <label for="password-length">Longueur du mot de passe :</label>
+    <input type="number" id="password-length" min="4" max="256" value="12">
+    <br>
+    <label>
+      <input type="checkbox" id="include-numbers"> Inclure des chiffres
+    </label>
+    <br>
+    <label>
+      <input type="checkbox" id="include-special"> Inclure des caractères spéciaux
+    </label>
+  </div>
+
   <button id="generate">✨ Générer</button>
+  <div id="passphrase">Cliquez sur "Générer"</div>
   <div id="notification"></div>
+
   <script src="popup.js"></script>
 </body>
 </html>
