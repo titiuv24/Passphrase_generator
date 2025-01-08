@@ -2,43 +2,42 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Passphrase Generator</title>
+  <title>🔑 Générateur de Mot de Passe/Passphrase</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <h1>🔑 Générateur de Mot de Passe/Passphrase</h1>
-  <p>Choisissez votre type de sécurité.</p>
 
-  <label>
-    <input type="radio" name="mode" value="passphrase" checked>
-    Passphrase
-  </label>
-  <label>
-    <input type="radio" name="mode" value="password">
-    Mot de passe
-  </label>
+  <div class="container">
+    <div class="radio-group">
+      <label>
+        <input type="radio" name="mode" value="passphrase" checked>
+        Passphrase
+      </label>
+      <label>
+        <input type="radio" name="mode" value="password">
+        Mot de passe
+      </label>
+    </div>
 
-  <div id="passphrase-options">
-    <label for="length">Nombre de mots :</label>
-    <input type="number" id="length" min="1" max="10" value="4">
+    <div id="passphrase-options" class="options-group">
+      <label for="length-slider">Nombre de mots : <span id="length-value">4</span></label>
+      <input type="range" id="length-slider" min="1" max="20" value="4">
+    </div>
+
+    <div id="password-options" class="options-group" style="display:none;">
+      <label for="password-length-slider">Longueur : <span id="password-length-value">16</span></label>
+      <input type="range" id="password-length-slider" min="4" max="128" value="16">
+      <div class="checkbox-group">
+        <label><input type="checkbox" id="include-numbers"> Chiffres</label>
+        <label><input type="checkbox" id="include-special"> Caractères spéciaux</label>
+      </div>
+    </div>
+
+    <button id="generate">✨ Générer</button>
+    <div id="passphrase">Cliquez sur "Générer"</div>
+    <div id="notification"></div>
   </div>
-
-  <div id="password-options" style="display:none;">
-    <label for="password-length">Longueur du mot de passe :</label>
-    <input type="number" id="password-length" min="4" max="256" value="12">
-    <br>
-    <label>
-      <input type="checkbox" id="include-numbers"> Inclure des chiffres
-    </label>
-    <br>
-    <label>
-      <input type="checkbox" id="include-special"> Inclure des caractères spéciaux
-    </label>
-  </div>
-
-  <button id="generate">✨ Générer</button>
-  <div id="passphrase">Cliquez sur "Générer"</div>
-  <div id="notification"></div>
 
   <script src="popup.js"></script>
 </body>

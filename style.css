@@ -1,84 +1,104 @@
+/* Styles de base */
 body {
-    font-family: 'Arial', sans-serif;
-    text-align: center;
-    background-color: #f9fafc;
-    padding: 20px;
-    width: 300px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  h1 {
-    font-size: 20px;
-    color: #2c3e50;
-    margin-bottom: 10px;
-  }
-  
-  #passphrase {
-    margin: 15px 0;
-    font-size: 16px;
-    font-weight: bold;
-    color: #34495e;
-    background-color: #ecf0f1;
-    padding: 10px;
-    border-radius: 5px;
-    word-wrap: break-word;
-    min-height: 30px;
-  }
-  
-  label {
-    font-size: 14px;
-    margin-top: 10px;
-    display: block;
-    color: #2c3e50;
-  }
-  
-  input {
-    width: 50px;
-    padding: 5px;
-    margin-top: 5px;
-    margin-bottom: 15px;
-    border: 1px solid #bdc3c7;
-    border-radius: 4px;
-    text-align: center;
-  }
-  
-  button {
-    margin-top: 10px;
-    padding: 8px 15px;
-    font-size: 14px;
-    font-weight: bold;
-    color: #fff;
-    background-color: #3498db;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  button:hover {
-    background-color: #2980b9;
-  }
-  
-  /* Notification Style */
-  #notification {
-    margin-top: 10px;
-    font-size: 12px;
-    color: #27ae60;
-    opacity: 0;
-    transition: opacity 0.5s ease;
-  }
-  
-#password-options {
-  margin-top: 10px;
-  text-align: left;
+  font-family: 'Arial', sans-serif;
+  text-align: center;
+  background-color: #f9fafc;
+  padding: 10px;
+  width: 300px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-#password-options label {
-  display: block;
+h1 {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+/* Conteneur principal */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 15px;
+}
+
+/* Groupes d'options */
+.radio-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.options-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 10px;
+}
+
+label {
+  font-size: 12px;
+}
+
+/* Slider */
+input[type="range"] {
+  width: 80%;
   margin-top: 5px;
 }
 
-#password-options input {
-  margin-right: 5px;
+/* Checkboxes */
+.checkbox-group {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 5px;
+}
+
+.checkbox-group label {
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* Bouton Générer */
+button {
+  margin-top: 10px;
+  padding: 5px 10px;
+  font-size: 12px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  background-color: #3498db;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #2980b9;
+}
+
+/* Résultat */
+#passphrase {
+  margin-top: 10px;
+  font-size: 14px;
+  font-weight: bold;
+  background-color: #ecf0f1;
+  padding: 5px;
+  border-radius: 5px;
+  width: 90%;
+  word-wrap: break-word;
+}
+
+/* Notification */
+#notification {
+  margin-top: 5px;
+  font-size: 10px;
+  opacity: 0;
+  transition: opacity 0.5s ease;
 }

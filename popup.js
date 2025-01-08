@@ -29,7 +29,7 @@ function showNotification(message) {
 
 // Générer une passphrase
 function generatePassphrase() {
-  const length = parseInt(document.getElementById('length').value) || 4;
+  const length = parseInt(document.getElementById('length-slider').value) || 4;
   let passphrase = [];
   for (let i = 0; i < length; i++) {
     const randomIndex = Math.floor(Math.random() * words.length);
@@ -43,13 +43,13 @@ function generatePassphrase() {
 
 // Générer un mot de passe
 function generatePassword() {
-  const length = parseInt(document.getElementById('password-length').value) || 12;
+  const length = parseInt(document.getElementById('password-length-slider').value) || 12;
   const includeNumbers = document.getElementById('include-numbers').checked;
   const includeSpecial = document.getElementById('include-special').checked;
 
   let charset = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
   if (includeNumbers) charset += '0123456789';
-  if (includeSpecial) charset += '!@#$%^&*()-_=+[]{}|;:,.<>?';
+  if (includeSpecial) charset += '!@#$%&*()-_=+;:,.<>?';
 
   let password = '';
   for (let i = 0; i < length; i++) {
@@ -64,14 +64,18 @@ function generatePassword() {
 // Basculer entre les options
 function toggleOptions() {
   const mode = document.querySelector('input[name="mode"]:checked').value;
-  if (mode === 'passphrase') {
-    document.getElementById('passphrase-options').style.display = 'block';
-    document.getElementById('password-options').style.display = 'none';
-  } else {
-    document.getElementById('passphrase-options').style.display = 'none';
-    document.getElementById('password-options').style.display = 'block';
-  }
+  document.getElementById('passphrase-options').style.display = mode === 'passphrase' ? 'block' : 'none';
+  document.getElementById('password-options').style.display = mode === 'password' ? 'block' : 'none';
 }
+
+// Mettre à jour les valeurs des sliders
+document.getElementById('length-slider').addEventListener('input', () => {
+  document.getElementById('length-value').innerText = document.getElementById('length-slider').value;
+});
+
+document.getElementById('password-length-slider').addEventListener('input', () => {
+  document.getElementById('password-length-value').innerText = document.getElementById('password-length-slider').value;
+});
 
 // Écouteurs d'événements
 document.getElementById('generate').addEventListener('click', () => {
@@ -84,4 +88,13 @@ document.getElementById('generate').addEventListener('click', () => {
 });
 document.querySelectorAll('input[name="mode"]').forEach(radio => {
   radio.addEventListener('change', toggleOptions);
+});
+
+// Synchroniser les sliders avec les valeurs affichées
+document.getElementById('length-slider').addEventListener('input', () => {
+  document.getElementById('length-value').innerText = document.getElementById('length-slider').value;
+});
+
+document.getElementById('password-length-slider').addEventListener('input', () => {
+  document.getElementById('password-length-value').innerText = document.getElementById('password-length-slider').value;
 });
