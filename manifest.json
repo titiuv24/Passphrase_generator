@@ -15,6 +15,9 @@
       "matches": ["<all_urls>"]
     }
   ],
+  "permissions": [
+    "storage"
+  ],
   "browser_specific_settings": {
     "gecko": {
       "id": "titiuv@proton.me"

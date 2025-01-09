@@ -1,6 +1,12 @@
 let words = [];
 let history = [];
 
+chrome.storage.local.get(['history'], (result) => {
+  if (result.history) {
+    history = result.history;
+  }
+});
+
 // Charger le fichier de mots pour les passphrases
 fetch(chrome.runtime.getURL('wordlist.txt'))
   .then(response => response.text())
@@ -70,6 +76,7 @@ function addToHistory(item) {
   if (history.length > 10) {
     history.pop(); // Garde seulement les 10 derniers éléments
   }
+  saveHistory(); // Sauvegarde l'historique après chaque ajout
 }
 
 // Afficher l'historique
@@ -124,3 +131,11 @@ document.getElementById('length-slider').addEventListener('input', () => {
 document.getElementById('password-length-slider').addEventListener('input', () => {
   document.getElementById('password-length-value').innerText = document.getElementById('password-length-slider').value;
 });
+
+function saveHistory() {
+  chrome.storage.local.set({ history: history }, () => {
+    if (chrome.runtime.lastError) {
+      console.error('Erreur lors de la sauvegarde de l\'historique :', chrome.runtime.lastError);
+    }
+  });
+}
